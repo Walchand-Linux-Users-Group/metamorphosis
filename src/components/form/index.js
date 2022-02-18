@@ -9,7 +9,7 @@ import { branchOptions, yearOptions } from "../../utils/options";
 import { register } from "./api";
 import { useSnackbar } from "notistack";
 
-const Registration = () => {
+const Registration = ({ setIsRegistered }) => {
   const { email, name, branch, year, college, mobile_number } = {};
   const [submitAttempt, setSubmitAttempt] = useState(false);
   const snackbar = useSnackbar();
@@ -40,13 +40,8 @@ const Registration = () => {
             values,
             (data) => {
               console.log(data);
-              snackbar("Registered Successfully", {
-                variant: "success",
-                anchorOrigin: {
-                  vertical: "bottom",
-                  horizontal: "left",
-                },
-              });
+              setIsRegistered(true);
+              localStorage.setItem("isRegisteredMeta", "true");
             },
             (err) => {
               console.log(err);

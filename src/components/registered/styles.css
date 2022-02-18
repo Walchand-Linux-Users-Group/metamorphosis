@@ -1,0 +1,10 @@
+.registered-container {
+  height: 100vh;
+  padding-top: 40vh;
+}
+
+.registered-card {
+  padding: 10px;
+  display: block;
+  margin: auto auto;
+}
