@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap");
+body {
+  margin: 0;
+  font-family: "Heebo", sans-serif !important;
+  background-image: url("./assets/wlug.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
