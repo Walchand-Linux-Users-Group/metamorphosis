@@ -1,0 +1,29 @@
+.comp-footer {
+  color: white;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #182538;
+  margin: auto 10vh;
+  margin-bottom: 5vh;
+}
+
+.comp-footer .logo {
+  height: 7vh;
+  width: auto;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .comp-footer .logo {
+    display: block;
+    margin: auto;
+  }
+}
