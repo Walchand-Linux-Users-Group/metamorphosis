@@ -1,6 +1,6 @@
 .registered-container {
-  height: 100vh;
-  padding-top: 40vh;
+  padding-top: 50px;
+  min-height: calc(70vh - 50px);
 }
 
 .registered-card {

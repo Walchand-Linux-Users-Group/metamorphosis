@@ -22,11 +22,11 @@ const Registration = ({ setIsRegistered }) => {
           color: "white",
           fontWeight: "bold",
           letterSpacing: "0.1rem",
-          fontSize: "1.5rem",
+          fontSize: "1.7rem",
         }}
         className="my-1 mb-2"
       >
-        METAMORPHOSIS
+        METAMORPHOSIS'22
       </Card.Title>
       <div
         className="mt-4 p-3"
@@ -40,10 +40,11 @@ const Registration = ({ setIsRegistered }) => {
       >
         <Card.Title
           style={{
-            fontSize: "1.5rem",
+            fontSize: "1.3rem",
           }}
-          className="my-1 mb-2 meta-title"
+          className=" my-1 mb-2 meta-title"
         >
+          {" "}
           Registration Form
         </Card.Title>
         <Formik
@@ -55,8 +56,12 @@ const Registration = ({ setIsRegistered }) => {
               values,
               (data) => {
                 console.log(data);
-                setIsRegistered(true);
-                localStorage.setItem("isRegisteredMeta", "true");
+
+                setIsRegistered(data?.status === "success");
+                localStorage.setItem(
+                  "isRegisteredMeta",
+                  `${data?.status === "success"}`
+                );
               },
               (err) => {
                 console.log(err);

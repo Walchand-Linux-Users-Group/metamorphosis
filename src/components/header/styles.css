@@ -20,3 +20,8 @@
     text-align: center;
   }
 }
+@media only screen and (min-width: 601px) {
+  .meta-title {
+    padding-left: 13px;
+  }
+}

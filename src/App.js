@@ -21,7 +21,7 @@ function App() {
           <Registration setIsRegistered={setIsRegistered} />
         )}
       </div>
-      <hr style={{ color: "gray", height: "3px", marginBottom: "6vh" }} />
+      <hr style={{ color: "gray", height: "2px", marginBottom: "6vh" }} />
       <div>
         <Footer />
       </div>
