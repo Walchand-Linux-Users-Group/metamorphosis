@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@mui/styles";
-import { TextField, Input } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const styles = {
   root: {
@@ -22,7 +22,6 @@ const SimpleInput = ({
   error,
   sideText = "",
 }) => {
-  console.log(classes);
   return (
     <>
       <TextField

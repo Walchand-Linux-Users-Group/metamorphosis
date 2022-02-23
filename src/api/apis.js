@@ -1,4 +1,4 @@
-const baseUrlWithSlash = "http://api.wcewlug.org";
+const baseUrlWithSlash = "http://localhost:3001";
 
 const apiUrls = {
   register: "register",

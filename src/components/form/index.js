@@ -7,12 +7,10 @@ import SimpleInput from "../formFields/simpleInput";
 import SelectInput from "../formFields/selectInput";
 import { branchOptions, yearOptions } from "../../utils/options";
 import { register } from "./api";
-import { useSnackbar } from "notistack";
 
-const Registration = ({ setIsRegistered }) => {
+const Registration = ({ setIsRegistered, setError }) => {
   const { email, name, branch, year, college, mobile_number } = {};
   const [submitAttempt, setSubmitAttempt] = useState(false);
-  const snackbar = useSnackbar();
 
   return (
     <>
@@ -44,24 +42,22 @@ const Registration = ({ setIsRegistered }) => {
           }}
           className=" my-1 mb-2 meta-title"
         >
-          {" "}
           Registration Form
         </Card.Title>
         <Formik
           validationSchema={formValidations}
           validateOnChange={submitAttempt}
           onSubmit={async (values) => {
-            console.log(values);
             register(
               values,
               (data) => {
-                console.log(data);
-
-                setIsRegistered(data?.status === "success");
-                localStorage.setItem(
-                  "isRegisteredMeta",
-                  `${data?.status === "success"}`
-                );
+                console.log(data.status);
+                if (data?.status === 200) {
+                  setIsRegistered(true);
+                  localStorage.setItem("isRegisteredMeta", "true");
+                } else {
+                  setError(true);
+                }
               },
               (err) => {
                 console.log(err);
