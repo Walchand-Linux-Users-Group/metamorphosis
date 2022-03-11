@@ -51,8 +51,8 @@ const Registration = ({ setIsRegistered, setError }) => {
             register(
               values,
               (data) => {
-                console.log(data.status);
-                if (data?.status === 200) {
+                console.log(data);
+                if (data?.success) {
                   setIsRegistered(true);
                   localStorage.setItem("isRegisteredMeta", "true");
                 } else {
@@ -60,7 +60,7 @@ const Registration = ({ setIsRegistered, setError }) => {
                 }
               },
               (err) => {
-                console.log(err);
+                if (err) console.log(err);
               }
             );
           }}

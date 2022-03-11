@@ -1,4 +1,4 @@
-const baseUrlWithSlash = "http://localhost:3001";
+const baseUrlWithSlash = "http://13.59.136.12:5000/";
 
 const apiUrls = {
   register: "register",
