@@ -61,6 +61,7 @@ const Registration = ({ setIsRegistered, setError }) => {
               },
               (err) => {
                 if (err) console.log(err);
+                setError(true);
               }
             );
           }}
