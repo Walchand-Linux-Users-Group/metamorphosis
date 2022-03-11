@@ -6,7 +6,7 @@ const apiInstance = () => {
   const api = axios.create({
     baseURL: apiBaseUrl,
   });
-  axiosRetry(api, { retries: 3 });
+  axiosRetry(api, { retries: 1 });
   return api;
 };
 
