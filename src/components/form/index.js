@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form as FForm } from "formik";
 import { Form, Card } from "react-bootstrap";
 import { Button } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 import { formValidations } from "./validations";
 import SimpleInput from "../formFields/simpleInput";
 import SelectInput from "../formFields/selectInput";
@@ -9,8 +10,10 @@ import { branchOptions, yearOptions } from "../../utils/options";
 import { register } from "./api";
 
 const Registration = ({ setIsRegistered, setError }) => {
-  const { email, name, branch, year, college, mobile_number } = {};
+  const { email, name, branch, year, college, mobile_number } =
+    JSON.parse(localStorage?.getItem("response")) || {};
   const [submitAttempt, setSubmitAttempt] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   return (
     <>
@@ -48,6 +51,7 @@ const Registration = ({ setIsRegistered, setError }) => {
           validationSchema={formValidations}
           validateOnChange={submitAttempt}
           onSubmit={async (values) => {
+            setLoader(true);
             register(
               values,
               (data) => {
@@ -57,11 +61,15 @@ const Registration = ({ setIsRegistered, setError }) => {
                   localStorage.setItem("isRegisteredMeta", "true");
                 } else {
                   setError(true);
+                  localStorage.setItem("response", JSON.stringify(values));
                 }
+                setLoader(true);
               },
               (err) => {
                 if (err) console.log(err);
                 setError(true);
+                localStorage.setItem("response", JSON.stringify(values));
+                setLoader(true);
               }
             );
           }}
@@ -181,8 +189,9 @@ const Registration = ({ setIsRegistered, setError }) => {
                 </Form.Group>
 
                 <div className="w-100 d-flex flex-row-reverse">
-                  <Button
+                  <LoadingButton
                     variant="contained"
+                    loading={loader}
                     className="m-2"
                     type="submit"
                     onClick={() => {
@@ -190,7 +199,7 @@ const Registration = ({ setIsRegistered, setError }) => {
                     }}
                   >
                     Register
-                  </Button>
+                  </LoadingButton>
                 </div>
               </FForm>
             );

@@ -1,4 +1,4 @@
-const baseUrlWithSlash = "http://13.59.136.12:5000/";
+const baseUrlWithSlash = "https://api.meta.wcewlug.org:5000/";
 
 const apiUrls = {
   register: "register",
